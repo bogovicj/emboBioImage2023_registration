@@ -1,0 +1,7 @@
+#!/bin/bash
+
+jrc10_url="https://github.com/VirtualFlyBrain/DrosAdultBRAINdomains/raw/master/template/JFRCtemplate2010.nrrd"
+curl -L -o './sampleImages/JFRCtemplate2010.nrrd' $jrc10_url
+
+jrc18_url="https://figshare.com/ndownloader/files/12809636?private_link=afa673b1dcd163ad8f3f"
+curl -L -o './sampleImages/JRC2018_FEMALE_38um_iso_16bit.nrrd' $jrc18_url
