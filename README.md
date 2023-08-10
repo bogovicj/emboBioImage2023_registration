@@ -1,6 +1,37 @@
 # emboBioImage2023_registration
 Materials for the advanced image registration section of the "Advanced methods in bioimage analysis" EMBO 2023 course
 
+## Course outline
+
+#### 1 Lecture
+
+1. Watch lecture video (Coming soon!)
+
+#### 2 Setup
+
+1. Check out this repository
+2. Run `./downloadSampleImages` to ... download more sample images
+3. Set up your environment, if necessary (see below)
+
+#### 3 Practical / Hands-on 
+
+Each notebook contains instructions and comments. To get the most out of them,
+students should read and follow instructions in the notebooks, run the notebook
+cell-by-cell, ensuring they understand the code. Also important:
+
+* Predict the output / result of each cell before running
+* Observe the result after running the cell
+* Compare to your prediction
+
+The recommended order for notebooks is:
+
+1. Run `ResampleImages.ipnb` notebook
+2. Run `RecoverOffset.ipnb` notebook
+3. Run `ct-mr-example.ipnb` notebook
+4. Run `multiResolutionRegistrationExample.ipnb` notebook
+5. Run `deformableRegistrationParameters.ipynb` notebook
+
+
 ## Dependencies 
 
 * [simple-elastix](https://simpleelastix.github.io/)
