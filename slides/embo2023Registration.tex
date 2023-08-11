@@ -76,9 +76,14 @@
   \newcounter{finalframe}
   \setcounter{finalframe}{\value{framenumber}}
 }
+
 \newcommand{\backupend}{
   \setcounter{framenumber}{\value{finalframe}}
 }
+
+\newcommand{\code}[1]{\texttt{#1}}
+
+
 
 \newlength\imagesep
 \setlength\imagesep{0.125cm}
@@ -171,17 +176,20 @@
 \usebeamercolor[fg]{normal text}
 
 \begin{frame}{Outline}
+  Image Registration
+  \vspace{1.0em}
   \begin{itemize}
-      \item Image Geometry
+      \setlength\itemsep{1.0em}
       \item Transformations
-      \item Registration
+      \item Image Geometry
+      \item Practical algorithmic details
       \begin{itemize}
+          \setlength\itemsep{0.5em}
           \item a
           \item b
           \item c
       \end{itemize}
   \end{itemize}
-
 \end{frame}
 
 
@@ -221,6 +229,26 @@
 
 \end{frame}
 
+\begin{frame}{What is a transformation}
+
+    %\only<1>{
+    %        \vspace{1em}  
+    %        \includegraphics[height=0.7\paperheight]{figures/transforms/TransformsCoordinateSystem-1.pdf}
+    %}
+    %\only<2>{
+            \vspace{1em}  
+            \includegraphics[height=0.7\paperheight]{figures/transforms/TransformsCoordinateSystem-2.pdf}
+
+
+        \begin{textblock}{7}(8,6.0)
+            Transformations are functions that: \\
+            take points (coordinates) as inputs \\
+            produce points (coordinates) as outputs.
+        \end{textblock}
+    %}
+
+\end{frame}
+
 
 \begin{frame}{Image geometry}
     \begin{center}
@@ -230,11 +258,38 @@
 \end{frame}
 
 
+\begin{frame}{Many relationships are transformations}
+
+    \vspace{0.7em}
+    \begin{center}
+      \includegraphics[width=0.7\paperwidth]{figures/transforms/transformsSlide.pdf}
+    \end{center}
+
+    \vspace{-0.4em}Join the conversation at \code{github.com/ome/ngff}
+
+\end{frame}
+
+
+%\begin{frame}{Transformations in OME-Zarr}
+%
+%    \begin{center}
+%        Efficient data access puts the ``big'' in BigWarp \\
+%        \vspace{1em}Chunked file formats* makes array access efficient \\
+%        \vspace{1em}Ome-Zarr standardizes critical metadata
+%    \end{center}
+%
+%    \rightfoot{ \scriptsize{ *HDF5, N5, Zarr, etc.}}
+%
+%\end{frame}
+
+
 \begin{frame}{Key ideas}
 
     Pixels (entries in the image array) are \emph{point samples}. \\
     \vspace{1em}
-    Pixels are located in \emph{physical coordinates}  
+    Pixels are located in \emph{physical coordinates} \\
+    \vspace{2em}
+    Reinforce these ideas in \code{ResampleImages.ipynb}
 
 \end{frame}
 
@@ -243,25 +298,26 @@
     
     Define:
     \begin{itemize}
-        \item The \emph{forward} transformation maps \emph{points}
-            \newline from moving to target space.
-        \item The \emph{inverse} transformation maps \emph{points}
-            \newline from target to moving space.
+        \item The \emph{forward} transformation maps \emph{points} from
+            \newline moving to target space.
+        \item The \emph{inverse} transformation maps \emph{points} from
+            \newline target to moving space.
     \end{itemize}
 
     \only<2>{
     Then:
     \begin{itemize}
         \item We need the \emph{inverse} transformation to map
-            \emph{images} \newline from moving to target space
+            \emph{images} from \newline moving to target space
         \item We need the \emph{forward} transformation to map
-            \emph{images} \newline from target to moving space
+            \emph{images} from \newline target to moving space
     \end{itemize}
 
     The following will explain why this is the case.
     }
 
 \end{frame}
+
 
 \begin{frame}[plain]%
 \frametitle{Transforms on a grid}
@@ -338,84 +394,32 @@
     }
 \end{frame}
 
+
 \begin{frame}[plain]%
 \frametitle{point and image transformations}
     
+    \vspace{2.0em}
     Define:
     \begin{itemize}
-        \item The \emph{forward} transformation maps \emph{points}
-            \newline from moving to target space.
-        \item The \emph{inverse} transformation maps \emph{points}
-            \newline from target to moving space.
+        \item The \emph{forward} transformation maps \emph{points} from
+            \newline moving to target space.
+        \item The \emph{inverse} transformation maps \emph{points} from
+            \newline target to moving space.
     \end{itemize}
 
     Then:
     \begin{itemize}
         \item We need the \emph{inverse} transformation to map
-            \emph{images} \newline from moving to target space
+            \emph{images} from \newline moving to target space
         \item We need the \emph{forward} transformation to map
-            \emph{images} \newline from target to moving space
+            \emph{images} from \newline target to moving space
     \end{itemize}
+    
+    \vspace{0.8em}
+    Remember this when working through \code{RecoverOffset.ipynb}
 
 \end{frame}
 
-
-\begin{frame}{}
-
-\begin{center}
-    Efficient data access puts the ``big'' in BigWarp \\
-    \vspace{1em}Chunked file formats* makes array access efficient \\
-    \vspace{1em}Ome-Zarr standardizes critical metadata
-\end{center}
-
-\rightfoot{ \scriptsize{ *HDF5, N5, Zarr, etc.}}
-\end{frame}
-
-
-%\begin{frame}{My headaches:}
-%
-%\begin{itemize}
-%    \item{what is the pixel spacing / resolution of my image?}
-%    \item{is this annotation in pixel or physical units?}
-%    \item{does this transformation work on pixel or physical units?}
-%    \item{how is this crop related to the whole image?}
-%    \item{how do I correctly transform spatial measurements?}
-%    \item{how do I compose / concatenate these transformations?}
-%    \item{is this transformation ``forward'' or ``inverse''?}
-%    \item<1- | alert@1>{how do I use the transform from software A in software B?}
-%\end{itemize}
-%
-%\end{frame}
-%
-%\begin{frame}{Example workflow}
-%
-%\only<4->{
-%    \begin{textblock}{12}(0.6,2.2)
-%        \small task: transform the point: $(150.0, 75.5, 30.0)$ from the EM to the LM image.
-%    \end{textblock}
-%}
-%
-%\begin{center}
-%    %\only<1>{\includegraphics[width=0.90\paperwidth]{figures/transforms/em-lm-coordSystem-Transforms.png}}
-%    \only<1>{\includegraphics[width=0.90\paperwidth]{figures/transforms/em-lm-ex-1.png}}
-%    \only<2>{\includegraphics[width=0.90\paperwidth]{figures/transforms/em-lm-ex-2.png}}
-%    \only<3-4>{\includegraphics[width=0.90\paperwidth]{figures/transforms/em-lm-ex-3.png}}
-%    \only<5>{\includegraphics[width=0.90\paperwidth]{figures/transforms/em-lm-coordSystem-Transforms-1.png}}
-%    \only<6>{\includegraphics[width=0.90\paperwidth]{figures/transforms/em-lm-coordSystem-Transforms-2.png}}
-%    \only<7>{\includegraphics[width=0.90\paperwidth]{figures/transforms/em-lm-coordSystem-Transforms-3.png}}
-%    \only<8>{\includegraphics[width=0.90\paperwidth]{figures/transforms/em-lm-coordSystem-Transforms-4.png}}
-%\end{center}
-%
-%\end{frame}
-
-\begin{frame}{Many relationships are transformations}
-
-\vspace{0.8em}
-\begin{center}
-  \includegraphics[width=0.75\paperwidth]{figures/transforms/transformsSlide.pdf}
-\end{center}
-
-\end{frame}
 
 \begin{frame}{Image registration algorithms}
 
@@ -428,6 +432,7 @@
     \citefoot{image from elastix manual}
 \end{frame}
 
+
 \begin{frame}{Transformation types}
 
     \vspace{1.0em}
@@ -438,20 +443,71 @@
     \citefoot{image from elastix manual}
 \end{frame}
 
+
+%\begin{frame}{We will learn}
+%
+%    \begin{itemize}
+%        \item Reinforce fundamental concepts (\code{ResampleImages.ipynb})
+%        \item How to choose an appropriate metric (\code{ct-mr-example.ipynb})
+%        \item Some properties registration algorithms
+%        \begin{itemize}
+%            \item the importance of initialization (\code{RecoverOffset.ipynb})
+%            \item non-linear registration (\code{deformableRegistrationParameters.ipynb})
+%        \end{itemize}
+%        \item Strategies for big data (\code{multiResolutionRegistration.ipynb})
+%        \begin{itemize}
+%            \item run registration at low resolution
+%            \item apply transformation at full resolution
+%        \end{itemize}
+%    \end{itemize}
+%
+%\end{frame}
+
 \begin{frame}{We will learn}
 
     \begin{itemize}
         \item Reinforce fundamental concepts
         \item How to choose an appropriate metric
-        \item Some properties of the optimizer
+        \item Some properties registration algorithms
         \begin{itemize}
             \item the importance of initialization
+            \item non-linear registration
         \end{itemize}
-        \item Strategies for big data 
+        \item Strategies for big data
         \begin{itemize}
             \item run registration at low resolution
             \item apply transformation at full resolution
         \end{itemize}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Practical outline}
+
+    \begin{itemize}
+        \item \code{resample\_images.ipynb}
+            \only<1>{ \begin{itemize}
+                \item Images have a physical coordinate system
+                \item Downsampling strategies might affect physical coordinates
+            \end{itemize}}
+        \item \code{translation\_initialization.ipynb}
+            \only<2>{ \begin{itemize}
+                \item Simple image registration (translation)
+                \item Initialization can be important
+            \end{itemize}}
+        \item \code{similarity\_metrics.ipynb}
+            \only<3>{ \begin{itemize}
+                \item Choosing an image similarity metric
+            \end{itemize}}
+        \item \code{multi\_resolution.ipynb}
+            \only<4>{ \begin{itemize}
+                \item Big data strategies
+            \end{itemize}}
+        \item \code{nonlinear.ipynb}
+            \only<5>{ \begin{itemize}
+                \item Advanced, non-linear image registration
+                \item Measuring smoothness
+            \end{itemize}}
     \end{itemize}
 
 \end{frame}
