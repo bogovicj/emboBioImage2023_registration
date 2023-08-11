@@ -2,20 +2,20 @@
 
 
 jrc10_url="https://github.com/VirtualFlyBrain/DrosAdultBRAINdomains/raw/master/template/JFRCtemplate2010.nrrd"
-if [[ -f "/scratch/JFRCtemplate2010.nrrd" ]]
+if [[ -f "/scratch/bogovic/JFRCtemplate2010.nrrd" ]]
 then
     echo "link from scratch 10"
     ln -s /scratch/JFRCtemplate2010.nrrd ./sampleImages
 else
     echo "grab 10"
-    curl -L -o './sampleImages/JFRCtemplate2010.nrrd' $jrc10_url
+    curl -L -o './sampleImages/bogovic/JFRCtemplate2010.nrrd' $jrc10_url
 fi
 
 jrc18_url="https://figshare.com/ndownloader/files/12809636?private_link=afa673b1dcd163ad8f3f"
-if [[ -f "/scratch/JRC2018_FEMALE_38um_iso_16bit.nrrd" ]]
+if [[ -f "/scratch/bogovic/JRC2018_FEMALE_38um_iso_16bit.nrrd" ]]
 then
     echo "link from scratch 18"
-    ln -s "/scratch/JRC2018_FEMALE_38um_iso_16bit.nrrd" ./sampleImages
+    ln -s "/scratch/bogovic/JRC2018_FEMALE_38um_iso_16bit.nrrd" ./sampleImages
 else
     echo "grab 18"
     curl -L -o './sampleImages/JRC2018_FEMALE_38um_iso_16bit.nrrd' $jrc18_url
