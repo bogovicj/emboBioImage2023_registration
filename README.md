@@ -25,12 +25,11 @@ cell-by-cell, ensuring they understand the code. Also important:
 
 The recommended order for notebooks is:
 
-1. Run `ResampleImages.ipnb` notebook
-2. Run `RecoverOffset.ipnb` notebook
-3. Run `ct-mr-example.ipnb` notebook
-4. Run `multiResolutionRegistrationExample.ipnb` notebook
-5. Run `deformableRegistrationParameters.ipynb` notebook
-
+1. Run `resample_images.ipnb` notebook
+2. Run `translation_initialization.ipnb` notebook
+3. Run `similarity_metrics.ipnb` notebook
+4. Run `multi_resolution.ipnb` notebook
+5. Run `nonlinear.ipynb` notebook
 
 ## Dependencies 
 
