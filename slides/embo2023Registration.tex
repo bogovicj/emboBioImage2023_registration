@@ -185,9 +185,9 @@
       \item Practical algorithmic details
       \begin{itemize}
           \setlength\itemsep{0.5em}
-          \item a
-          \item b
-          \item c
+          \item choosing parameters
+          \item common pitfalls
+          \item big data strategies
       \end{itemize}
   \end{itemize}
 \end{frame}
@@ -231,21 +231,47 @@
 
 \begin{frame}{What is a transformation}
 
-    %\only<1>{
-    %        \vspace{1em}  
-    %        \includegraphics[height=0.7\paperheight]{figures/transforms/TransformsCoordinateSystem-1.pdf}
-    %}
-    %\only<2>{
+    \only<1>{
             \vspace{1em}  
             \includegraphics[height=0.7\paperheight]{figures/transforms/TransformsCoordinateSystem-2.pdf}
+    }
+    \only<2>{
+            \vspace{1em}  
+            \includegraphics[height=0.7\paperheight]{figures/transforms/TransformsCoordinateSystem-3.pdf}
+    }
 
+    \begin{textblock}{7}(8,5.5)
+        Transformations are functions that: \\
+        take points (coordinates) as inputs \\
+        produce points (coordinates) as outputs. \\ 
+    \end{textblock}
 
-        \begin{textblock}{7}(8,6.0)
-            Transformations are functions that: \\
-            take points (coordinates) as inputs \\
-            produce points (coordinates) as outputs.
-        \end{textblock}
-    %}
+    \only<2>{
+    \begin{textblock}{7}(8,9.0)
+        The inverse is a transformation that: \\
+        given the output of a transformation, \\
+        produces the original input point \\
+        (un-does the original transformation).
+    \end{textblock}
+    }
+
+\end{frame}
+
+\begin{frame}{Quiz}
+
+    If we have the transformation: \\
+    \begin{align*}
+        T( x, y ) = (x + 5, y - 12)
+    \end{align*}
+
+    what is the inverse transformation?
+    
+    \only<2>{
+     
+    \begin{align*}
+        T^{-1}( x, y ) = (x - 5, y + 12)
+    \end{align*}
+    }
 
 \end{frame}
 
@@ -480,15 +506,21 @@
         \end{itemize}
     \end{itemize}
 
+    \begin{textblock}{4}(12,2.5)
+        \includegraphics[width=1in]{figures/elastixLogo.png}
+    \end{textblock}
+
 \end{frame}
 
 \begin{frame}{Practical outline}
 
+    \begin{textblock}{8.5}(0.1,2.5)
+
     \begin{itemize}
         \item \code{resample\_images.ipynb}
             \only<1>{ \begin{itemize}
-                \item Images have a physical coordinate system
-                \item Downsampling strategies might affect physical coordinates
+                \item Images have a physical \\ coordinate system
+                \item Downsampling strategies might \\ affect physical coordinates
             \end{itemize}}
         \item \code{translation\_initialization.ipynb}
             \only<2>{ \begin{itemize}
@@ -510,6 +542,37 @@
             \end{itemize}}
     \end{itemize}
 
+    \end{textblock}
+
+    \only<1>{
+    \begin{textblock}{4}(8.4,2.5)
+        \includegraphics[width=2.8in]{figures/emboBiaCourse2023/resample.png}
+    \end{textblock}
+    }
+
+    \only<2>{
+    \begin{textblock}{4}(8.4,2.5)
+        \includegraphics[width=2.8in]{figures/emboBiaCourse2023/translation_initialization.png}
+    \end{textblock}
+    }
+
+    \only<3>{
+    \begin{textblock}{4}(8.7,2.5)
+        \includegraphics[width=2.0in]{figures/emboBiaCourse2023/similarity_metrics.png}
+    \end{textblock}
+    }
+
+    \only<4>{
+    \begin{textblock}{4}(8.7,2.5)
+        \includegraphics[width=2.5in]{figures/emboBiaCourse2023/multi_resolution.png}
+    \end{textblock}
+    }
+
+    \only<5>{
+    \begin{textblock}{4}(8.9,2.1)
+        \includegraphics[width=1.7in]{figures/emboBiaCourse2023/nonlinear.png}
+    \end{textblock}
+    }
 \end{frame}
 
 \end{document}
