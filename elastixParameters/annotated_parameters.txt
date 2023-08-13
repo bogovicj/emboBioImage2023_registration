@@ -1,0 +1,54 @@
+// ********  Image properties ********  
+
+(FixedInternalImagePixelType "float")
+(MovingInternalImagePixelType "float")
+
+(FixedImageDimension 3)
+(MovingImageDimension 3)
+
+// ***************** Transformation **************************
+
+(Transform "AffineTransform")
+
+// **************** Similarity metric **************************
+
+(Metric "AdvancedMattesMutualInformation")
+
+// Some metrics have additional options
+(NumberOfHistogramBins 32)
+(NumberOfSpatialSamples 2048)
+(NewSamplesEveryIteration "true")
+(ImageSampler "Random")
+
+
+// ************** Multiresolution and optimization **********************
+
+(Registration "MultiResolutionRegistration")
+(NumberOfResolutions 4)
+(FixedImagePyramid "FixedRecursiveImagePyramid")
+(MovingImagePyramid "MovingRecursiveImagePyramid")
+
+// The downsampling/blurring factors for the image pyramids.
+// There are default options for the pyramid, but can be provided manually 
+// (ImagePyramidSchedule 8 8 8  4 4 4  2 2 2  1 1 1 )
+
+
+(Optimizer "AdaptiveStochasticGradientDescent")
+(MaximumNumberOfIterations 1000)
+(MaximumStepLength 0.5)
+
+
+// ************* Interpolation and Resampling ****************
+
+(Interpolator "BSplineInterpolator")
+(ResampleInterpolator "FinalBSplineInterpolator")
+(Resampler "DefaultResampler")
+
+(BSplineInterpolationOrder 1)
+(FinalBSplineInterpolationOrder 3)
+(DefaultPixelValue 0)
+
+// ************* Output options ****************
+(WriteResultImage "false")
+(ResultImagePixelType "float")
+(ResultImageFormat "nrrd")
