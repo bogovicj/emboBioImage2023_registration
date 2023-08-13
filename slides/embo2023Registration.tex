@@ -24,6 +24,10 @@
 \usepackage{calc}
 \usepackage{siunitx}
 
+\usepackage{listings}
+\lstset{language=Java,basicstyle=\ttfamily\bfseries}
+
+
 \usepackage{tikz}
 \usetikzlibrary{arrows,backgrounds,patterns}
 % TikZ gray color model is wrong, particularly for shading!
@@ -447,7 +451,21 @@
 \end{frame}
 
 
-\begin{frame}{Image registration algorithms}
+\begin{frame}
+
+    \vspace{5em}
+    \begin{center}
+        \LARGE{ \color{HHMIGreenB} ``Pixel-based'' Image Registration Algorithms }
+    \end{center}
+
+    \vspace{0.8em}
+    \begin{center}
+        \small { \color{gray} ``Feature-based'' registration methods will not be covered in this course. }
+    \end{center}
+
+\end{frame}
+
+\begin{frame}{Image registration pipeline}
 
     \vspace{0.8em}
     \begin{center}
@@ -468,6 +486,162 @@
 
     \citefoot{image from elastix manual}
 \end{frame}
+
+\begin{frame}{Multi-resolution registration}
+
+    \vspace{1.0em}
+    \begin{center}
+        \includegraphics[width=0.6\paperwidth]{figures/emboBiaCourse2023/elastix_multires.png} \\
+    \end{center}
+
+    \begin{textblock}{4}(0.7,3.3)
+        Smooth and \\ downsample
+    \end{textblock}
+
+    \begin{textblock}{4}(0.7,8.5)
+        Smooth only
+    \end{textblock}
+
+    \citefoot{image from elastix manual}
+\end{frame}
+
+\begin{frame}{Optimization}
+
+    \vspace{1.0em}
+    \begin{center}
+        \includegraphics[width=0.6\paperwidth]{figures/emboBiaCourse2023/elastix_optimization.png} \\
+    \end{center}
+
+    \citefoot{image from elastix manual}
+\end{frame}
+
+\begin{frame}[fragile]{Elastix parameters}
+
+    \begin{textblock}{6}(0.3,1.8)
+    \tiny
+    \begin{lstlisting}
+    // ********  Image properties ********  
+
+    (FixedInternalImagePixelType "float")
+    (MovingInternalImagePixelType "float")
+    (FixedImageDimension 3)
+    (MovingImageDimension 3)
+
+    // ************* Multiresolution ***************
+
+    (Registration "MultiResolutionRegistration")
+    (NumberOfResolutions 4)
+    (FixedImagePyramid "FixedRecursiveImagePyramid")
+    (MovingImagePyramid "MovingRecursiveImagePyramid")
+
+    // The downsampling/blurring factors for the image pyramids.
+    // There are defaults, but can be provided manually
+    // (ImagePyramidSchedule 8 8 8  4 4 4  2 2 2  1 1 1 )
+
+    // ******** Interpolation and Resampling ***********
+
+    (Interpolator "BSplineInterpolator")
+    (ResampleInterpolator "FinalBSplineInterpolator")
+    (Resampler "DefaultResampler")
+
+    (BSplineInterpolationOrder 1)
+    (FinalBSplineInterpolationOrder 3)
+    (DefaultPixelValue 0)
+
+    \end{lstlisting}
+    \end{textblock}
+
+    \begin{textblock}{6}(7.9,1.8)
+    \tiny
+    \begin{lstlisting}
+    // ************* Transformation ****************
+
+    (Transform "AffineTransform")
+
+    // ************ Similarity metric **************
+
+    (Metric "AdvancedMattesMutualInformation")
+
+    // Some metrics have additional options
+    (NumberOfHistogramBins 32)
+    (NumberOfSpatialSamples 2048)
+    (NewSamplesEveryIteration "true")
+    (ImageSampler "Random")
+
+    // ************ Optimization **************
+
+    (Optimizer "AdaptiveStochasticGradientDescent")
+    (MaximumStepLength 0.5)
+
+    (MaximumNumberOfIterations 1000)
+
+    // or can have number of iterations per resolution
+    // (MaximumNumberOfIterations 500 250 100 50 )
+
+    // ************* Output options ****************
+
+    (WriteResultImage "false")
+    (ResultImagePixelType "float")
+    (ResultImageFormat "nrrd")
+
+    \end{lstlisting}
+    \end{textblock}
+
+\end{frame}
+
+%\begin{frame}[fragile]{Elastix parameters}
+%
+%    \tiny
+%    \begin{lstlisting}
+%    // ********  Image properties ********  
+%
+%    (FixedInternalImagePixelType "float")
+%    (MovingInternalImagePixelType "float")
+%
+%    (FixedImageDimension 3)
+%    (MovingImageDimension 3)
+%
+%    // ************* Transformation ****************
+%
+%    (Transform "AffineTransform")
+%
+%    // ************ Similarity metric **************
+%
+%    (Metric "AdvancedMattesMutualInformation")
+%
+%    // Some metrics have additional options
+%    (NumberOfHistogramBins 32)
+%    (NumberOfSpatialSamples 2048)
+%    (NewSamplesEveryIteration "true")
+%    (ImageSampler "Random")
+%
+%    \end{lstlisting}
+%
+%\end{frame}
+%
+%\begin{frame}[fragile]{Elastix parameters (2)}
+%
+%    \tiny
+%    \begin{lstlisting}
+%
+%    // ******** Interpolation and Resampling ***********
+%
+%    (Interpolator "BSplineInterpolator")
+%    (ResampleInterpolator "FinalBSplineInterpolator")
+%    (Resampler "DefaultResampler")
+%
+%    (BSplineInterpolationOrder 1)
+%    (FinalBSplineInterpolationOrder 3)
+%    (DefaultPixelValue 0)
+%
+%    // ************* Output options ****************
+%    (WriteResultImage "false")
+%    (ResultImagePixelType "float")
+%    (ResultImageFormat "nrrd")
+%
+%    \end{lstlisting}
+%
+%\end{frame}
 
 
 %\begin{frame}{We will learn}
