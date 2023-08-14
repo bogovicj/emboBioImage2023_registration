@@ -5,7 +5,7 @@ Materials for the advanced image registration section of the "Advanced methods i
 
 #### 1 Lecture
 
-1. Watch lecture video (Coming soon!)
+1. Watch [the lecture video](https://youtu.be/OCbFJfLoZbY)
 
 #### 2 Setup
 
