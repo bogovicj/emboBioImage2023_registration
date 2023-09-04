@@ -24,13 +24,13 @@ cell-by-cell, ensuring they understand the code. Also important:
 * Observe the result after running the cell
 * Compare to your prediction
 
-The recommended order for notebooks is:
+Unsurprisingly, the recommended order for notebooks is:
 
-1. Run `resample_images.ipnb` notebook
-2. Run `translation_initialization.ipnb` notebook
-3. Run `similarity_metrics.ipnb` notebook
-4. Run `multi_resolution.ipnb` notebook
-5. Run `nonlinear.ipynb` notebook
+1. `1_resample_images.ipnb`
+2. `2_translation_initialization.ipnb`
+3. `3_similarity_metrics.ipnb`
+4. `4_multi_resolution.ipnb`
+5. `5_nonlinear.ipynb`
 
 ## Dependencies 
 
