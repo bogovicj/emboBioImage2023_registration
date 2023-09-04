@@ -6,6 +6,7 @@ Materials for the advanced image registration section of the "Advanced methods i
 #### 1 Lecture
 
 1. Watch [the lecture video](https://youtu.be/OCbFJfLoZbY)
+2. (Optional) [Download the lecture slides](https://github.com/bogovicj/emboBioImage2023_registration/blob/main/slides/embo2023Registration.pdf)
 
 #### 2 Setup
 
