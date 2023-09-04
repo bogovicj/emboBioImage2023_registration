@@ -1,0 +1,7 @@
+micromamba create -n elastix
+micromamba activate elastix
+micromamba install python=3.10
+pip install SimpleITK-SimpleElastix
+pip install itkwidgets
+micromamba install scikit-image
+
