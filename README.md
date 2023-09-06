@@ -10,6 +10,21 @@ Materials for the advanced image registration section of the "Advanced methods i
 
 #### 2 Setup
 
+If working on EMBL's BAND Platform, run these once:
+
+* Open a terminal (click the icon near the top of the screen, or Applications > System tools > MATE terminal)
+* Run `/scratch/bioimagecourse2023/session4/get-data.sh`
+
+Now you should have a folder in your home directory called `emboBioImage2023_registration`. It should contain
+a folder called `sampleImages` containing six files.
+
+When you're ready to start the hands-on portion run these two commands in a terminal.
+
+* `source /scratch/bioimagecourse2023/session4/setup.sh`
+* `/scratch/bioimagecourse2023/session4/notebook.sh`
+
+Otherwise:
+
 1. Check out this repository
 2. Run `./downloadSampleImages` to ... download more sample images
 3. Set up your environment, if necessary (see below)
