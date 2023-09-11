@@ -38,8 +38,21 @@ movingImage = RealViews.affine(
 	
 
 bdv = BdvFunctions.show(fixedImage, fixed, "fixed image");
-BdvFunctions.show(movingImage, fixed, "transformed image", 
+bdv.getConverterSetups().get(0).setDisplayRange(0, 16000);
+bdv.getConverterSetups().get(0).setColor(new ARGBType( ARGBType.rgba(255, 0, 255, 255)));
+
+bdv = BdvFunctions.show(movingImage, fixed, "transformed image", 
 	BdvOptions.options().addTo(bdv));
+
+cameraView = new AffineTransform3D();
+cameraView.set( 2.565671410502492, -0.011719060614066577, -0.13394947575801147, -0.0,
+				0.0, 2.559415846654586, -0.22391987183088097, 110.0,
+				0.1344611409944236, 0.22361299742877644, 2.5559082561881525, -342.11903863993325);
+		
+bdv.getBdvHandle().getViewerPanel().state().setViewerTransform(cameraView);
+
+bdv.getConverterSetups().get(0).setDisplayRange(0, 164);
+bdv.getConverterSetups().get(0).setColor(new ARGBType( ARGBType.rgba(0, 255, 0, 255)));
 
 
 def affine(file) {
@@ -114,4 +127,5 @@ import net.imglib2.realtransform.Translation3D;
 import net.imglib2.realtransform.RealViews;
 import net.imglib2.type.NativeType;
 import net.imglib2.type.numeric.NumericType;
+import net.imglib2.type.numeric.ARGBType;
 import net.imglib2.view.Views;
