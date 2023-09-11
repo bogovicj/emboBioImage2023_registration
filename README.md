@@ -52,6 +52,29 @@ Unsurprisingly, the recommended order for notebooks is:
 * [simple-elastix](https://simpleelastix.github.io/)
 * [itk-widgets](https://github.com/InsightSoftwareConsortium/itkwidgets)
 
+## Registration tools
+
+* Automatic
+    * [elastix](https://elastix.lumc.nl/)
+    * [ANTs](http://stnava.github.io/ANTs/)
+    * [CMTK](https://www.nitrc.org/projects/cmtk/)
+* (Semi)Manual
+    * [BigWarp](https://imagej.net/plugins/bigwarp)
+    * [BigStitcher](https://imagej.net/plugins/bigstitcher/)
+* Point cloud registration
+    * [Iterative closest point (ICP)]()
+    * Coherent point drift
+        * [a copy of the original matlab code](https://github.com/weigert/CoherentPointDrift)
+        * [a python reimplementation](https://github.com/siavashk/pycpd)
+* Others
+    * [Janelia "render services"](https://github.com/saalfeldlab/render)
+
+## Acknowledgements
+
+Thank you to the organizers of the course: Ignacio Arganda-Carreras, Anna Klemm, Perrine Paul-Gilloteaux, Christian Tischer,
+Irena Provaznikova, and Alba Catherine Casas Saavedra. The Saalfeld lab and HHMI Janelia for supporting me, and all the course
+particpants.
+
 ## Image credits
 
 * CT / MR
@@ -60,3 +83,4 @@ Unsurprisingly, the recommended order for notebooks is:
     * [Jenett et al 2012](http://dx.doi.org/10.1016/j.celrep.2012.09.011)
 * [JFRC2018](https://www.janelia.org/open-science/jrc-2018-brain-templates)
     * [Bogovic et al 2020](https://doi.org/10.1371/journal.pone.0236495)
+
