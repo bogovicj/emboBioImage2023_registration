@@ -58,11 +58,12 @@ Unsurprisingly, the recommended order for notebooks is:
     * [elastix](https://elastix.lumc.nl/)
     * [ANTs](http://stnava.github.io/ANTs/)
     * [CMTK](https://www.nitrc.org/projects/cmtk/)
+    * [BigStream](https://github.com/GFleishman/bigstream) (for big data)
 * (Semi)Manual
     * [BigWarp](https://imagej.net/plugins/bigwarp)
     * [BigStitcher](https://imagej.net/plugins/bigstitcher/)
 * Point cloud registration
-    * [Iterative closest point (ICP)]()
+    * Iterative closest point (ICP): classical algorithm with many implementations
     * Coherent point drift
         * [a copy of the original matlab code](https://github.com/weigert/CoherentPointDrift)
         * [a python reimplementation](https://github.com/siavashk/pycpd)
