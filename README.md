@@ -52,23 +52,22 @@ Unsurprisingly, the recommended order for notebooks is:
 * [simple-elastix](https://simpleelastix.github.io/)
 * [itk-widgets](https://github.com/InsightSoftwareConsortium/itkwidgets)
 
-## Registration tools
+## Registration and related tools
 
-* Automatic
-    * [elastix](https://elastix.lumc.nl/)
-    * [ANTs](http://stnava.github.io/ANTs/)
-    * [CMTK](https://www.nitrc.org/projects/cmtk/)
-    * [BigStream](https://github.com/GFleishman/bigstream) (for big data)
-* (Semi)Manual
-    * [BigWarp](https://imagej.net/plugins/bigwarp)
-    * [BigStitcher](https://imagej.net/plugins/bigstitcher/)
-* Point cloud registration
-    * Iterative closest point (ICP): classical algorithm with many implementations
-    * Coherent point drift
-        * [a copy of the original matlab code](https://github.com/weigert/CoherentPointDrift)
-        * [a python reimplementation](https://github.com/siavashk/pycpd)
-* Others
-    * [Janelia "render services"](https://github.com/saalfeldlab/render)
+* [elastix](https://elastix.lumc.nl/)
+* [ANTs](http://stnava.github.io/ANTs/)
+* [CMTK](https://www.nitrc.org/projects/cmtk/)
+* [BigStream](https://github.com/GFleishman/bigstream) (for big data)
+* [bUnwarpJ](https://imagej.net/plugins/bunwarpj/) (by Ignacio!)
+* [ec-Clem](https://icy.bioimageanalysis.org/plugin/ec-clem/) (by Perrine!)
+* [BigWarp](https://imagej.net/plugins/bigwarp) (by John!)
+* [BigStitcher](https://imagej.net/plugins/bigstitcher/)
+* [ABBA](https://biop.github.io/ijp-imagetoatlas/registration.html)
+* Iterative closest point (ICP): classical algorithm with many implementations
+* Coherent point drift
+    * [a copy of the original matlab code](https://github.com/weigert/CoherentPointDrift)
+    * [a python reimplementation](https://github.com/siavashk/pycpd)
+* [Janelia "render services"](https://github.com/saalfeldlab/render)
 
 ## Acknowledgements
 
