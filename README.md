@@ -58,6 +58,7 @@ Unsurprisingly, the recommended order for notebooks is:
 * [ANTs](http://stnava.github.io/ANTs/)
 * [CMTK](https://www.nitrc.org/projects/cmtk/)
 * [BigStream](https://github.com/GFleishman/bigstream) (for big data)
+   * [bigstream video tutorial](https://youtu.be/CgZu66f7EqY)
 * [bUnwarpJ](https://imagej.net/plugins/bunwarpj/) (by Ignacio!)
 * [ec-Clem](https://icy.bioimageanalysis.org/plugin/ec-clem/) (by Perrine!)
 * [BigWarp](https://imagej.net/plugins/bigwarp) (by John!)
