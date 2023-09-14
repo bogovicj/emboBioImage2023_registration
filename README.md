@@ -62,6 +62,7 @@ Unsurprisingly, the recommended order for notebooks is:
 * [bUnwarpJ](https://imagej.net/plugins/bunwarpj/) (by Ignacio!)
 * [ec-Clem](https://icy.bioimageanalysis.org/plugin/ec-clem/) (by Perrine!)
 * [BigWarp](https://imagej.net/plugins/bigwarp) (by John!)
+  * [A playlist of bigwarp videos](https://www.youtube.com/playlist?list=PLmZHHIZ9Gz-Ij9GvIKdJQB_GGqvSl1523)
 * [BigStitcher](https://imagej.net/plugins/bigstitcher/)
 * [ABBA](https://biop.github.io/ijp-imagetoatlas/registration.html)
 * Iterative closest point (ICP): classical algorithm with many implementations
