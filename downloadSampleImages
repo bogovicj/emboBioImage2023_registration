@@ -8,7 +8,7 @@ then
     ln -s /scratch/JFRCtemplate2010.nrrd ./sampleImages
 else
     echo "grab 10"
-    curl -L -o './sampleImages/bogovic/JFRCtemplate2010.nrrd' $jrc10_url
+    curl -L -o './sampleImages/JFRCtemplate2010.nrrd' $jrc10_url
 fi
 
 jrc18_url="https://figshare.com/ndownloader/files/12809636?private_link=afa673b1dcd163ad8f3f"
